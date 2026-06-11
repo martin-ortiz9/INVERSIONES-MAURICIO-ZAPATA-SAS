@@ -1,0 +1,362 @@
+/* PALETA Y VARIABLES */
+
+:root {
+    --color-primary: #0f4c75;
+    --color-primary-dark: #0a3557;
+    --color-secondary: #3282b8;
+    --color-accent: #5dade2;
+    --color-bg: #f0f6fa;
+    --color-bg-section: #e8f4fc;
+    --color-text: #2c3e50;
+    --color-white: #ffffff;
+    --radius-lg: 40px;
+    --radius-md: 15px;
+    --shadow: 0 4px 20px rgba(15, 76, 117, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-padding-top: 80px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    background: var(--color-bg);
+    color: var(--color-text);
+    padding-top: 80px;
+}
+
+/* NAVBAR */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 1000;
+    left: 0;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    border-radius: 6px;
+}
+
+.logo p {
+    margin: 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-white);
+    font-weight: 500;
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    color: var(--color-accent);
+}
+
+/* HERO */
+
+.hero {
+    text-align: center;
+    padding: 160px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.45), rgba(15, 76, 117, 0.7)),
+        url("Imagenes/pescado.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom-left-radius: var(--radius-lg);
+    border-bottom-right-radius: var(--radius-lg);
+    color: var(--color-white);
+}
+
+.hero h2 {
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: var(--color-white);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.3);
+}
+
+.hero p {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: var(--color-white);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+}
+
+/* SECCIONES GENERALES */
+
+section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--color-primary);
+    font-size: 28px;
+}
+
+/* SOBRE NOSOTROS */
+
+.info {
+    background: var(--color-bg-section);
+    border-radius: var(--radius-lg);
+    margin-top: 50px;
+}
+
+.proyecto {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    align-items: center;
+}
+
+.info p {
+    text-align: justify;
+    font-size: 16px;
+}
+
+.info img {
+    width: 100%;
+    max-width: 480px;
+    display: block;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow);
+}
+
+/* QUE HACEMOS */
+
+.detalles .item {
+    position: relative;
+    background: var(--color-white);
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--color-secondary);
+    transition: border-color 0.3s;
+}
+
+.detalles .item.open {
+    border-left-color: var(--color-accent);
+}
+
+.detalles .titulo {
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 18px;
+    position: relative;
+    padding-left: 30px;
+    color: var(--color-primary);
+    user-select: none;
+}
+
+.detalles .titulo::after {
+    content: "▶";
+    position: absolute;
+    left: 0;
+    transition: transform 0.3s ease;
+    color: var(--color-secondary);
+}
+
+.detalles .item.open .titulo::after {
+    transform: rotate(90deg);
+}
+
+.detalles p {
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+.detalles .contenido {
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: height 0.4s ease, opacity 0.4s ease;
+}
+
+.detalles .item.open .contenido {
+    opacity: 1;
+}
+
+/* COMPROMISO AMBIENTAL */
+
+.ambiental {
+    max-width: 1200px;
+    background:
+        linear-gradient(rgba(15, 76, 117, 0.7), rgba(10, 53, 87, 0.8)),
+        url("Imagenes/AGUA.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: var(--radius-md);
+    color: var(--color-white);
+}
+
+.ambiental p {
+    text-align: justify;
+}
+
+.ambiental h2 {
+    color: var(--color-white);
+}
+
+/* FONDO EMPRENDER */
+
+.fondo-emprender {
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    margin-top: 50px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(15, 76, 117, 0.08);
+}
+
+.fondo-contenido {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    align-items: center;
+}
+
+.fondo-contenido img {
+    width: 100%;
+    max-width: 380px;
+    display: block;
+    border-radius: var(--radius-md);
+}
+
+.fondo-contenido p {
+    text-align: justify;
+    font-size: 16px;
+    flex: 1;
+}
+
+/* CONTACTO */
+
+.contacto {
+    text-align: center;
+    background: var(--color-bg-section);
+    border-radius: var(--radius-md);
+    margin-top: 50px;
+    max-width: 600px;
+    box-shadow: var(--shadow);
+}
+
+.contacto p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.contacto a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.contacto a:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+/* FOOTER */
+
+footer {
+    background: var(--color-primary);
+    color: var(--color-white);
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 0 15px;
+        height: auto;
+        min-height: 80px;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .logo {
+        font-size: 13px;
+    }
+
+    .logo img {
+        height: 45px;
+        width: auto;
+    }
+
+    .nav-links {
+        gap: 12px;
+        font-size: 14px;
+    }
+
+    body {
+        padding-top: 100px;
+    }
+
+    html {
+        scroll-padding-top: 100px;
+    }
+
+    .hero {
+        padding: 100px 20px;
+    }
+
+    section {
+        padding: 40px 15px;
+    }
+
+    .proyecto,
+    .fondo-contenido {
+        flex-direction: column;
+    }
+
+    .info img {
+        max-width: 100%;
+    }
+}
